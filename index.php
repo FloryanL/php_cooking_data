@@ -1,4 +1,6 @@
 <?php
+    echo '<h2>Dictionnaire</h2>';
+
     $string = file_get_contents("dictionnaire.txt", FILE_USE_INCLUDE_PATH);
     $dico = explode("\n", $string);
 
@@ -32,5 +34,16 @@
         }
     }
     echo 'Il y a ',count($mots_q), ' mots qui finissent par la lettre « q ».','</br>','</br>';
+
+    echo '<h2>Liste de films</h2>';
+
+    $string = file_get_contents("films.json", FILE_USE_INCLUDE_PATH);
+    $brut = json_decode($string, true);
+    $top = $brut["feed"]["entry"];
+    
+    //Afficher le top10 des films
+    $top10 = array();
+
+    echo $top10; 
 
 ?>
